@@ -28,8 +28,8 @@ RUN cd $SDK_ROOT/tmp && wget https://www.st.com/content/ccc/resource/technical/s
 RUN cd $SDK_ROOT/tmp && tar xvf en.SDK-x86_64-stm32mp1-openstlinux-4.19-thud-mp1-19-02-20.tar.xz
 
 # Fix error with tar inside docker
-# cf https://github.com/coreos/bugs/issues/1095#issuecomment-336872867
-RUN apt-get install -y bsdtar && ln -sf $(which bsdtar) $(which tar)
+# cf https://github.com/dokku/dokku/issues/2953#issuecomment-364798499
+RUN alias tar="tar  --absolute-names"
 
 # Run the SDK installation script
 RUN chmod +x $SDK_ROOT/tmp/stm32mp1-openstlinux-4.19-thud-mp1-19-02-20/sdk/st-image-weston-openstlinux-weston-stm32mp1-x86_64-toolchain-2.6-openstlinux-4.19-thud-mp1-19-02-20.sh
