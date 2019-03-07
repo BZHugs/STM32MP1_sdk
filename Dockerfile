@@ -41,4 +41,5 @@ RUN rm -Rf $SDK_ROOT/tmp
 # Starting up the SDK
 RUN echo "source $SDK_ROOT/environment-setup-cortexa7t2hf-neon-vfpv4-openstlinux_weston-linux-gnueabi" >> /etc/bash.bashrc
 
+COPY ./entry.sh /
 ENTRYPOINT ["/entry.sh"]
