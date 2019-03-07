@@ -43,4 +43,4 @@ RUN echo "source $SDK_ROOT/environment-setup-cortexa7t2hf-neon-vfpv4-openstlinux
 
 COPY ./entry.sh /
 RUN chmod +x /entry.sh
-ENTRYPOINT ["/entry.sh"]
+ENTRYPOINT ["/bin/bash", "/entry.sh"]
