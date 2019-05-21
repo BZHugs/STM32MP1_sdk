@@ -1,22 +1,5 @@
 # STM32MP1_sdk
 
-## change Docker IPs pool
-
-```sudo nano /etc/docker/daemon.json```
-
-```
-{
-  "default-address-pools":
-  [
-    {"base":"10.10.0.0/16","size":24}
-  ]
-}
-```
-
-then do
-
-```sudo systemctl restart docker.service```
-
 ## Cross compile example
 
 * make new folder ex: ```hello_world```
@@ -123,3 +106,22 @@ Normaly now you have the file compiled for the card
 you can send the compiled file via scp:
 
 ```scp gtk_hello_world root@172.17.1.62:/home/root/```
+
+
+
+## Tips if route 172.17.X.X was already used.
+
+```sudo nano /etc/docker/daemon.json```
+
+```
+{
+  "default-address-pools":
+  [
+    {"base":"10.10.0.0/16","size":24}
+  ]
+}
+```
+
+then do
+
+```sudo systemctl restart docker.service```
